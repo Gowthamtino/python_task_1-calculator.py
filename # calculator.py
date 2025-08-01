@@ -11,45 +11,41 @@ def multiply(a, b):
 
 def divide(a, b):
     if b == 0:
-        return "Error! Division by zero."
-    return a / b
+        return "Error! Division by zero is not allowed."
+    else:
+        return a / b
 
-def main():
-    while True:
-        print("\n--- Calculator ---")
-        print("1. Addition")
-        print("2. Subtraction")
-        print("3. Multiplication")
-        print("4. Division")
-        print("5. Exit")
+print("Welcome to Calculator")
 
-        choice = input("Enter your choice (1-5): ")
+while True:
+    print("\nChoose operation:")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+    print("5. Exit")
 
-        if choice == '5':
-            print("Exiting... Goodbye!")
-            break
+    choice = input("Enter choice (1/2/3/4/5): ")
 
-        if choice not in ['1', '2', '3', '4']:
-            print("Invalid choice! Please select 1-5.")
-            continue
+    if choice == '5':
+        print("Exiting the program... Goodbye!")
+        break
 
+    if choice in ('1', '2', '3', '4'):
         try:
             num1 = float(input("Enter first number: "))
             num2 = float(input("Enter second number: "))
         except ValueError:
-            print("Invalid input! Please enter numeric values.")
+            print("Invalid input! Please enter numbers only.")
             continue
 
         if choice == '1':
-            result = add(num1, num2)
+            print("Result:", add(num1, num2))
         elif choice == '2':
-            result = subtract(num1, num2)
+            print("Result:", subtract(num1, num2))
         elif choice == '3':
-            result = multiply(num1, num2)
+            print("Result:", multiply(num1, num2))
         elif choice == '4':
-            result = divide(num1, num2)
-
-        print(f"Result: {result}")
-
-if __name__ == "__main__":
-    main()
+            print("Result:", divide(num1, num2))
+    else:
+        print("Invalid choice! Please select from 1 to 5.")
